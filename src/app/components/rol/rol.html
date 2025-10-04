@@ -1,0 +1,18 @@
+<div class="contenedor">
+  <h2>Administrar Roles</h2>
+
+  <div *ngFor="let usuario of usuarios" class="usuario-item">
+    <span>{{ usuario.nombre }} ({{ usuario.email }})</span>
+    <select [(ngModel)]="rolSeleccionado[usuario.id]">
+      <option value="admin">admin</option>
+      <option value="asesor">asesor</option>
+      <option value="arrendatario">arrendatario</option>
+      <option value="interesado">interesado</option>
+    </select>
+    <button (click)="cambiarRol(usuario.id)">Guardar</button>
+  </div>
+
+  <div *ngIf="mensaje" [ngClass]="mensajeTipo === 'exito' ? 'mensaje-exito' : 'mensaje-error'">
+    {{ mensaje }}
+  </div>
+</div>

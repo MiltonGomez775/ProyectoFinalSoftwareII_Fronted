@@ -13,4 +13,13 @@ export class Usuario {
   registrarUsuario(usuario: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/registrar`, usuario);
   }
+
+  listarUsuarios(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
+  }
+
+  actualizarRol(usuarioId: string, nuevoRol: string): Observable<any> {
+    const url = `${this.apiUrl}/${usuarioId}/rol?nuevoRol=${nuevoRol}`;
+    return this.http.put(url, {}); // PUT con body vacío si tu backend no requiere datos adicionales
+  }
 }
