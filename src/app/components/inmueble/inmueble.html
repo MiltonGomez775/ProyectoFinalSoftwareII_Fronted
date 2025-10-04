@@ -1,0 +1,37 @@
+<div class="contenedor">
+  <h2>Publicar Inmueble</h2>
+
+  <form (ngSubmit)="publicarInmueble()">
+    <input type="text" placeholder="Dirección" [(ngModel)]="direccion" name="direccion" required>
+    <input type="number" placeholder="Área (m²)" [(ngModel)]="area" name="area" required>
+    <input type="number" placeholder="Canon (COP)" [(ngModel)]="canon" name="canon" required>
+
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" [(ngModel)]="administracionIncluida" name="administracionIncluida">
+        Administración incluida
+      </label>
+    </div>
+
+    <input type="number" placeholder="Valor administración" [(ngModel)]="valorAdministracion" name="valorAdministracion">
+
+    <textarea placeholder="Descripción" [(ngModel)]="descripcion" name="descripcion" rows="3"></textarea>
+
+    <select [(ngModel)]="estado" name="estado">
+      <option value="disponible">Disponible</option>
+      <option value="ocupado">Ocupado</option>
+    </select>
+
+    <input type="text" placeholder="URL de foto" [(ngModel)]="fotos" name="fotos">
+
+    <button type="submit">Publicar</button>
+
+  </form>
+
+  @if (mensaje) {
+  <div [ngClass]="mensajeTipo === 'exito' ? 'mensaje-exito' : 'mensaje-error'">
+    {{ mensaje }}
+  </div>
+  }
+
+</div>

@@ -8,6 +8,7 @@ import { Observable, tap } from 'rxjs';
 export class Auth {
   private apiUrl = 'http://localhost:8080/api/sesiones';
   private tokenKey = 'jwt_token';
+  private userIdKey = 'usuario_id';
 
   constructor(private http: HttpClient) {}
 
@@ -15,6 +16,7 @@ export class Auth {
     return this.http.post(`${this.apiUrl}/login`, credentials).pipe(
       tap((response: any) => {
         localStorage.setItem(this.tokenKey, response.token);
+        localStorage.setItem(this.userIdKey, response.usuarioId);
       })
     );
   }
@@ -23,7 +25,12 @@ export class Auth {
     return localStorage.getItem(this.tokenKey);
   }
 
+  getUsuarioId(): string | null {
+    return localStorage.getItem(this.userIdKey); // 🔹 para obtenerlo fácilmente después
+  }
+
   logout(): void {
     localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem(this.userIdKey);
   }
 }
