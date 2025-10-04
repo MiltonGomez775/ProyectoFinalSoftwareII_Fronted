@@ -21,7 +21,7 @@ export class Login {
   onLogin() {
     this.auth.login({ correo: this.correo, contrasena: this.contrasena }).subscribe({
       next: () => {
-        this.router.navigate(['/inmueble']);
+        this.router.navigate(['/menu']);
       },
       error: () => {
         this.error = 'Credenciales incorrectas';

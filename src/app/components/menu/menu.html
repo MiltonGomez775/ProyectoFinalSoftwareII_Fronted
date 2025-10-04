@@ -1,0 +1,21 @@
+<nav class="menu">
+  <ul>
+    <li class="submenu">
+      <span (click)="toggleSubmenu()">Inmueble ▼</span>
+
+      <!-- Submenú oculto por defecto -->
+      <ul class="submenu-items" *ngIf="mostrarSubmenuInmueble">
+        <li><a (click)="mostrarComponente('publicar')">Publicar Inmueble</a></li>
+        <li><a (click)="mostrarComponente('listar')">Listar Inmueble</a></li>
+      </ul>
+    </li>
+
+    <li><a (click)="componenteActivo=''">Rol</a></li>
+    <li><a (click)="cerrarSesion()">Cerrar sesión</a></li>
+  </ul>
+</nav>
+
+<div class="contenido">
+  <app-inmueble *ngIf="componenteActivo === 'publicar'"></app-inmueble>
+  <app-listar-inmuebles *ngIf="componenteActivo === 'listar'"></app-listar-inmuebles>
+</div>

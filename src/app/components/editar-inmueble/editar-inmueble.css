@@ -1,0 +1,72 @@
+.contenedor {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 25px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+input, textarea, select, button {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background: #1976d2;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #125a9c;
+}
+
+.mensaje {
+  text-align: center;
+  color: #28a745;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.mensaje-exito {
+  color: #0a7d0a;
+  background-color: #d8f3dc;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 15px;
+  font-weight: 600;
+  animation: aparecer 0.3s ease-in;
+}
+
+.mensaje-error {
+  color: #a10000;
+  background-color: #ffd6d6;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 15px;
+  font-weight: 600;
+  animation: aparecer 0.3s ease-in;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+

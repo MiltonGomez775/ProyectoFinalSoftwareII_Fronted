@@ -1,0 +1,34 @@
+<div class="contenedor">
+  <h2>Editar Inmueble</h2>
+
+  <form (ngSubmit)="guardarCambios()" *ngIf="inmueble">
+    <input type="text" placeholder="Dirección" [(ngModel)]="inmueble.direccion" name="direccion" required>
+    <input type="number" placeholder="Área (m²)" [(ngModel)]="inmueble.area" name="area" required>
+    <input type="number" placeholder="Canon (COP)" [(ngModel)]="inmueble.canon" name="canon" required>
+
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" [(ngModel)]="inmueble.administracionIncluida" name="administracionIncluida">
+        Administración incluida
+      </label>
+    </div>
+
+    <input type="number" placeholder="Valor administración" [(ngModel)]="inmueble.valorAdministracion" name="valorAdministracion">
+
+    <textarea placeholder="Descripción" [(ngModel)]="inmueble.descripcion" name="descripcion" rows="3"></textarea>
+
+    <select [(ngModel)]="inmueble.estado" name="estado">
+      <option value="disponible">Disponible</option>
+      <option value="ocupado">Ocupado</option>
+    </select>
+
+    <input type="text" placeholder="URL de foto" [(ngModel)]="inmueble.fotos[0]" name="foto">
+
+    <button type="submit">Guardar cambios</button>
+  </form>
+
+  <!-- Mensaje -->
+  <div *ngIf="mensaje" [ngClass]="mensajeTipo === 'exito' ? 'mensaje-exito' : 'mensaje-error'">
+    {{ mensaje }}
+  </div>
+</div>

@@ -50,13 +50,13 @@ export class Inmueble {
 
     this.inmuebleService.publicarInmueble(inmueble).subscribe({
       next: () => {
-        this.mostrarMensaje('Inmueble publicado correctamente ✅', 'exito');
+        this.mostrarMensaje('Inmueble publicado correctamente', 'exito');
         this.cdr.detectChanges(); // 🔥 fuerza que Angular actualice la vista
         setTimeout(() => this.limpiarFormulario(), 100);
       },
       error: (err) => {
         console.error(err);
-        this.mostrarMensaje('Error al publicar el inmueble ❌', 'error');
+        this.mostrarMensaje('Error al publicar el inmueble', 'error');
         this.cdr.detectChanges(); // también aquí por si acaso
       }
     });

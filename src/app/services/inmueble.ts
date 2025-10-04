@@ -20,4 +20,13 @@ export class InmuebleService {
   listarInmuebles(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
+
+  obtenerInmueblePorId(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
+
+  actualizarInmueble(id: string, inmueble: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, inmueble);
+  }
+
 }
