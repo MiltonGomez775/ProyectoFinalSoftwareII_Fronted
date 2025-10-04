@@ -2,12 +2,13 @@
   <h2>Administrar Roles</h2>
 
   <div *ngFor="let usuario of usuarios" class="usuario-item">
-    <span>{{ usuario.nombre }} ({{ usuario.email }})</span>
+    <span>{{ usuario.nombre }} ({{ usuario.correo }})</span>
     <select [(ngModel)]="rolSeleccionado[usuario.id]">
-      <option value="admin">admin</option>
-      <option value="asesor">asesor</option>
-      <option value="arrendatario">arrendatario</option>
-      <option value="interesado">interesado</option>
+      <option value="admin">Administrador</option>
+      <option value="asesor">Asesor</option>
+      <option value="propietario">Propietario</option>
+      <option value="arrendatario">Arrendatario</option>
+      <option value="interesado">Interesado</option>
     </select>
     <button (click)="cambiarRol(usuario.id)">Guardar</button>
   </div>

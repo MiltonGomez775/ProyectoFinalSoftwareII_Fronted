@@ -3,11 +3,13 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Usuario } from '../../services/usuario';
 import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './registro.html',
   styleUrls: ['./registro.css']
 })
