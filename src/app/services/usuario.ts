@@ -20,6 +20,10 @@ export class Usuario {
 
   actualizarRol(usuarioId: string, nuevoRol: string): Observable<any> {
     const url = `${this.apiUrl}/${usuarioId}/rol?nuevoRol=${nuevoRol}`;
-    return this.http.put(url, {}); // PUT con body vacío si tu backend no requiere datos adicionales
+    return this.http.put(url, {});
+  }
+
+  obtenerUsuarioPorId(id: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/${id}`);
   }
 }

@@ -26,7 +26,7 @@ export class Auth {
   }
 
   getUsuarioId(): string | null {
-    return localStorage.getItem(this.userIdKey); // 🔹 para obtenerlo fácilmente después
+    return localStorage.getItem(this.userIdKey);
   }
 
   logout(): void {
