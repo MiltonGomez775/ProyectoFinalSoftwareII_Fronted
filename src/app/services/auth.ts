@@ -9,6 +9,7 @@ export class Auth {
   private apiUrl = 'http://localhost:8080/api/sesiones';
   private tokenKey = 'jwt_token';
   private userIdKey = 'usuario_id';
+  private rolKey = 'rol';
 
   constructor(private http: HttpClient) {}
 
@@ -17,6 +18,7 @@ export class Auth {
       tap((response: any) => {
         localStorage.setItem(this.tokenKey, response.token);
         localStorage.setItem(this.userIdKey, response.usuarioId);
+        localStorage.setItem(this.rolKey, response.rol);
       })
     );
   }
@@ -29,8 +31,13 @@ export class Auth {
     return localStorage.getItem(this.userIdKey);
   }
 
+  getRol(): string | null {
+    return localStorage.getItem(this.rolKey);
+  }
+
   logout(): void {
     localStorage.removeItem(this.tokenKey);
     localStorage.removeItem(this.userIdKey);
+    localStorage.removeItem(this.rolKey);
   }
 }

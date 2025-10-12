@@ -1,22 +1,19 @@
 <nav class="menu">
   <ul>
-    <li class="submenu">
-      <span (click)="toggleSubmenu()">Inmueble ▼</span>
-
-      <!-- Submenú oculto por defecto -->
+    <!-- 🏠 Inmuebles (visible solo para 'asesor' y 'administrador') -->
+    <li class="submenu" *ngIf="rol === 'asesor' || rol === 'administrador'">
+      <span (click)="toggleSubmenu()">Inmuebles ▼</span>
       <ul class="submenu-items" *ngIf="mostrarSubmenuInmueble">
         <li><a (click)="mostrarComponente('publicar')">Publicar Inmueble</a></li>
-        <li><a (click)="mostrarComponente('listar')">Listar Inmueble</a></li>
-        <li><a (click)="mostrarComponente('roles')">Roles</a></li>
+        <li><a (click)="mostrarComponente('listar')">Listar Inmuebles</a></li>
       </ul>
     </li>
 
-    <li class="submenu">
-      <span (click)="toggleSubmenu()">Rol ▼</span>
-
-      <!-- Submenú oculto por defecto -->
+    <!-- 👑 Administración de roles (solo administrador) -->
+    <li class="submenu" *ngIf="rol === 'administrador'">
+      <span (click)="toggleSubmenu()">Roles ▼</span>
       <ul class="submenu-items" *ngIf="mostrarSubmenuInmueble">
-        <li><a (click)="mostrarComponente('roles')">Roles</a></li>
+        <li><a (click)="mostrarComponente('roles')">Gestionar Roles</a></li>
       </ul>
     </li>
 

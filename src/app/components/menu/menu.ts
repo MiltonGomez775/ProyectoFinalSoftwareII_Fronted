@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,11 +13,17 @@ import { RolesComponent } from "../rol/rol";
   templateUrl: './menu.html',
   styleUrls: ['./menu.css']
 })
-export class MenuComponent {
+export class MenuComponent implements OnInit {
   componenteActivo: 'publicar' | 'listar' | 'roles' | '' = '';
   mostrarSubmenuInmueble = false;
-  
-  constructor(private router: Router) {} 
+  rol: string | null = null;
+
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.rol = localStorage.getItem('rol');
+    console.log('Rol del usuario:', this.rol);
+  }
 
   toggleSubmenu() {
     this.mostrarSubmenuInmueble = !this.mostrarSubmenuInmueble;
@@ -25,10 +31,11 @@ export class MenuComponent {
 
   mostrarComponente(componente: 'publicar' | 'listar' | 'roles') {
     this.componenteActivo = componente;
-    this.mostrarSubmenuInmueble = false; }
+    this.mostrarSubmenuInmueble = false;
+  }
 
   cerrarSesion() {
-    localStorage.clear();       // Borra todo el localStorage
-    this.router.navigate(['/login']);  // Redirige al login
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 }
