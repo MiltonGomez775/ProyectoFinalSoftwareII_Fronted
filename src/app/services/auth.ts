@@ -23,6 +23,16 @@ export class Auth {
     );
   }
 
+  //Solicitar token de recuperación
+  recuperarContrasena(correo: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/recuperar`, { correo });
+  }
+
+  //Restablecer contraseña con el token
+  restablecerContrasena(token: string, nuevaContrasena: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/restablecer`, { token, nuevaContrasena });
+  }
+
   getToken(): string | null {
     return localStorage.getItem(this.tokenKey);
   }

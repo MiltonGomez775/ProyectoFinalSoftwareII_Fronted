@@ -1,0 +1,29 @@
+<div class="restablecer-container">
+  <h2>🔑 Restablecer Contraseña</h2>
+
+  <form (ngSubmit)="restablecer()" class="formulario">
+    <input
+      type="text"
+      [(ngModel)]="token"
+      name="token"
+      placeholder="Token de recuperación"
+      required
+    />
+
+    <input
+      type="password"
+      [(ngModel)]="nuevaContrasena"
+      name="nuevaContrasena"
+      placeholder="Nueva contraseña"
+      required
+    />
+
+    <button type="submit" [disabled]="cargando">
+      {{ cargando ? 'Procesando...' : 'Cambiar contraseña' }}
+    </button>
+  </form>
+
+  <p *ngIf="mensaje" [ngClass]="{ 'mensaje-exito': exito, 'mensaje-error': !exito }">
+    {{ mensaje }}
+  </p>
+</div>

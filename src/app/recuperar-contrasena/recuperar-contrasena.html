@@ -1,0 +1,28 @@
+<div class="recuperar-container">
+  <h2>🔐 Recuperar Contraseña</h2>
+
+  <div class="form-recuperar">
+    <input
+      type="email"
+      placeholder="Ingresa tu correo"
+      [(ngModel)]="correo"
+      name="correo"
+      required
+    />
+    <button (click)="recuperar()">Enviar enlace</button>
+  </div>
+
+  <!-- Mensaje de éxito o error -->
+  <p *ngIf="mensaje" [class.exito]="tokenGenerado" [class.error]="!tokenGenerado">
+    {{ mensaje }}
+  </p>
+
+  <!-- Token generado -->
+  <div *ngIf="tokenGenerado" class="token-box">
+    <p><strong>Token generado:</strong></p>
+    <code>{{ tokenGenerado }}</code>
+  </div>
+
+  <a routerLink="/restablecer-contrasena">Recuperar Contraseña</a>
+  
+</div>

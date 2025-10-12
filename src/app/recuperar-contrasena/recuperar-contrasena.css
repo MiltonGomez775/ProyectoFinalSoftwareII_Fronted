@@ -1,0 +1,62 @@
+.recuperar-container {
+  max-width: 400px;
+  margin: 60px auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.form-recuperar {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+input[type="email"] {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+p.exito {
+  color: #28a745;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+p.error {
+  color: #dc3545;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.token-box {
+  margin-top: 15px;
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  font-family: monospace;
+}
