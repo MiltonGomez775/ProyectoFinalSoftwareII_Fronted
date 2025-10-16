@@ -1,7 +1,7 @@
 <nav class="menu">
   <ul>
     <!-- 🏠 Inmuebles (visible solo para 'asesor' y 'administrador') -->
-    <li class="submenu" *ngIf="rol === 'asesor' || rol === 'administrador'">
+    <li class="submenu" *ngIf="rol === 'asesor' || rol === 'admin'">
       <span (click)="toggleSubmenu()">Inmuebles ▼</span>
       <ul class="submenu-items" *ngIf="mostrarSubmenuInmueble">
         <li><a (click)="mostrarComponente('publicar')">Publicar Inmueble</a></li>
@@ -10,7 +10,7 @@
     </li>
 
     <!-- 👑 Administración de roles (solo administrador) -->
-    <li class="submenu" *ngIf="rol === 'administrador'">
+    <li class="submenu" *ngIf="rol === 'admin'">
       <span (click)="toggleSubmenu()">Roles ▼</span>
       <ul class="submenu-items" *ngIf="mostrarSubmenuInmueble">
         <li><a (click)="mostrarComponente('roles')">Gestionar Roles</a></li>
