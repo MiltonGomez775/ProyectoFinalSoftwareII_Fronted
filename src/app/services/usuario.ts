@@ -26,4 +26,8 @@ export class Usuario {
   obtenerUsuarioPorId(id: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
+
+  obtenerPropietarios(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/propietarios`);
+  }
 }

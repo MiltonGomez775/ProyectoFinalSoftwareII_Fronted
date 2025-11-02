@@ -1,8 +1,9 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { InmuebleService } from '../../services/inmueble';
+import { Usuario } from '../../services/usuario';
 
 @Component({
   selector: 'app-inmueble',
@@ -11,7 +12,7 @@ import { InmuebleService } from '../../services/inmueble';
   templateUrl: './inmueble.html',
   styleUrls: ['./inmueble.css']
 })
-export class Inmueble {
+export class Inmueble implements OnInit {
   direccion = '';
   area: number | null = null;
   canon: number | null = null;
@@ -23,16 +24,30 @@ export class Inmueble {
   mensaje = '';
   mensajeTipo: 'exito' | 'error' | '' = '';
 
+  propietarios: any[] = [];
+  propietarioId: string = '';
+
   constructor(
     private inmuebleService: InmuebleService,
+    private Usuario: Usuario,
     private router: Router,
     private cdr: ChangeDetectorRef
   ) {}
 
+  ngOnInit() {
+    this.Usuario.obtenerPropietarios().subscribe({
+      next: (data) => {
+        this.propietarios = data;
+      },
+      error: (err) => {
+        console.error('Error cargando propietarios', err);
+      }
+    });
+  }
+
   publicarInmueble() {
-    const propietarioId = localStorage.getItem('usuario_id');
-    if (!propietarioId) {
-      this.mostrarMensaje('No hay sesión activa.', 'error');
+    if (!this.propietarioId) {
+      this.mostrarMensaje('Selecciona un propietario.', 'error');
       return;
     }
 
@@ -44,20 +59,20 @@ export class Inmueble {
       valorAdministracion: this.valorAdministracion,
       descripcion: this.descripcion,
       estado: this.estado,
-      propietarioId,
+      propietarioId: this.propietarioId,
       fotos: [this.fotos]
     };
 
     this.inmuebleService.publicarInmueble(inmueble).subscribe({
       next: () => {
         this.mostrarMensaje('Inmueble publicado correctamente', 'exito');
-        this.cdr.detectChanges(); // 🔥 fuerza que Angular actualice la vista
+        this.cdr.detectChanges();
         setTimeout(() => this.limpiarFormulario(), 100);
       },
       error: (err) => {
         console.error(err);
         this.mostrarMensaje('Error al publicar el inmueble', 'error');
-        this.cdr.detectChanges(); // también aquí por si acaso
+        this.cdr.detectChanges();
       }
     });
   }
@@ -71,13 +86,12 @@ export class Inmueble {
     this.descripcion = '';
     this.estado = 'disponible';
     this.fotos = '';
+    this.propietarioId = '';
   }
 
   mostrarMensaje(texto: string, tipo: 'exito' | 'error') {
     this.mensaje = texto;
     this.mensajeTipo = tipo;
-
-    // Ocultar mensaje después de 3 segundos
     setTimeout(() => {
       this.mensaje = '';
       this.mensajeTipo = '';

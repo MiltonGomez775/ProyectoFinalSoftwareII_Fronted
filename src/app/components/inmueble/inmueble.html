@@ -6,6 +6,15 @@
     <input type="number" placeholder="Área (m²)" [(ngModel)]="area" name="area" required>
     <input type="number" placeholder="Canon (COP)" [(ngModel)]="canon" name="canon" required>
 
+    <select [(ngModel)]="propietarioId" name="propietarioId" required>
+      <option value="" disabled selected>Seleccionar propietario</option>
+      <option *ngFor="let p of propietarios" [value]="p.id">
+        {{ p.nombre }}
+      </option>
+
+    </select>
+
+
     <div class="checkbox">
       <label>
         <input type="checkbox" [(ngModel)]="administracionIncluida" name="administracionIncluida">
