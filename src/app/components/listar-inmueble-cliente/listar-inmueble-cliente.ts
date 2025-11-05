@@ -59,4 +59,9 @@ export class ListarInmueblesClienteComponent implements OnInit {
   verDisponibilidad(id: string): void {
     this.router.navigate(['/lista-espacios', id]);
   }
+
+  verDetalle(id: string): void {
+    // Navegar al componente de detalle
+    this.router.navigate(['/detalle-inmueble', id]);
+  }
 }

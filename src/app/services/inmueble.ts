@@ -45,4 +45,8 @@ export class InmuebleService {
     return this.http.get<any[]>(`${this.apiUrl}/filtrar`, { params });
   }
 
+  obtenerDetalleInmueble(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/detalles/${id}`);
+  }
+
 }

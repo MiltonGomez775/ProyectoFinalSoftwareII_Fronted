@@ -3,21 +3,9 @@
 
   <!-- 🔍 Filtros -->
   <div class="filtros">
-    <input
-      type="text"
-      placeholder="Dirección"
-      [(ngModel)]="direccion"
-    />
-    <input
-      type="number"
-      placeholder="Precio mínimo"
-      [(ngModel)]="minPrecio"
-    />
-    <input
-      type="number"
-      placeholder="Precio máximo"
-      [(ngModel)]="maxPrecio"
-    />
+    <input type="text" placeholder="Dirección" [(ngModel)]="direccion" />
+    <input type="number" placeholder="Precio mínimo" [(ngModel)]="minPrecio" />
+    <input type="number" placeholder="Precio máximo" [(ngModel)]="maxPrecio" />
     <select [(ngModel)]="estado">
       <option value="">Todos</option>
       <option value="disponible">Disponible</option>
@@ -41,9 +29,15 @@
         <p><strong>Área:</strong> {{ inmueble.area }} m²</p>
         <p><strong>Canon:</strong> {{ inmueble.canon | currency:'COP' }}</p>
         <p><strong>Estado:</strong> {{ inmueble.estado }}</p>
-        <button (click)="verDisponibilidad(inmueble.id)" class="btn">
-          Ver disponibilidad
-        </button>
+
+        <div class="botones">
+          <button (click)="verDisponibilidad(inmueble.id)" class="btn">
+            Ver disponibilidad
+          </button>
+          <button (click)="verDetalle(inmueble.id)" class="btn btn-detalle">
+            Detalle
+          </button>
+        </div>
       </div>
     </div>
   </div>

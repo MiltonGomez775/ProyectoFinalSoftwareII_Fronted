@@ -1,0 +1,16 @@
+<div class="detalle-contenedor" *ngIf="inmueble">
+  <button (click)="volver()" class="btn-volver">← Volver</button>
+
+  <div class="detalle-card">
+    <img [src]="inmueble.fotos?.[0]" alt="Foto del inmueble" class="foto-grande" />
+
+    <div class="detalle-info">
+      <h2>{{ inmueble.direccion }}</h2>
+      <p><strong>Área:</strong> {{ inmueble.area }} m²</p>
+      <p><strong>Canon:</strong> {{ inmueble.canon | currency:'COP' }}</p>
+      <p><strong>Estado:</strong> {{ inmueble.estado }}</p>
+      <p><strong>Propietario:</strong> {{ inmueble.propietarioNombre }}</p>
+      <p><strong>Descripción:</strong> {{ inmueble.descripcion }}</p>
+    </div>
+  </div>
+</div>

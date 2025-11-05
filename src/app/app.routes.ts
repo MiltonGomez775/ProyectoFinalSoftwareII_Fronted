@@ -7,6 +7,7 @@ import { RecuperarContrasenaComponent } from './recuperar-contrasena/recuperar-c
 import { RestablecerContrasenaComponent } from './restablecer-contrasena/restablecer-contrasena';
 import { ListaCitas } from './components/lista-citas/lista-citas';
 import { ListaEspaciosComponent } from './components/lista-espacios/lista-espacios';
+import { DetalleInmuebleComponent } from './components/detalle-inmueble/detalle-inmueble';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -22,6 +23,7 @@ export const routes: Routes = [
 
 
   //Inmuebles
-  { path: 'editar-inmueble/:id', component: EditarInmuebleComponent }
+  { path: 'editar-inmueble/:id', component: EditarInmuebleComponent },
+  { path: 'detalle-inmueble/:id', component: DetalleInmuebleComponent },
 
 ];
