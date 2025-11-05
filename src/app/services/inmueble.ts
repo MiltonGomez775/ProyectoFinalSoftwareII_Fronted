@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
@@ -27,6 +27,22 @@ export class InmuebleService {
 
   actualizarInmueble(id: string, inmueble: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/${id}`, inmueble);
+  }
+
+  filtrarInmuebles(
+    direccion?: string,
+    minPrecio?: number,
+    maxPrecio?: number,
+    estado?: string
+  ): Observable<any[]> {
+    let params = new HttpParams();
+
+    if (direccion) params = params.set('direccion', direccion);
+    if (minPrecio) params = params.set('minPrecio', minPrecio);
+    if (maxPrecio) params = params.set('maxPrecio', maxPrecio);
+    if (estado) params = params.set('estado', estado);
+
+    return this.http.get<any[]>(`${this.apiUrl}/filtrar`, { params });
   }
 
 }

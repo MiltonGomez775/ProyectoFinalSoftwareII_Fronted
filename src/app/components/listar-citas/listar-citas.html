@@ -1,0 +1,40 @@
+<div class="contenedor">
+  <h2 class="mb-3">Todas las Citas</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Cliente</th>
+        <th>Propietario</th>
+        <th>Inmueble</th>
+        <th>Fecha</th>
+        <th>Hora Inicio</th>
+        <th>Hora Fin</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cita of citas">
+        <td>{{ cita.nombreCliente }}</td>
+        <td>{{ cita.nombrePropietario }}</td>
+        <td>{{ cita.nombreInmueble }}</td>
+        <td>{{ cita.fecha }}</td>
+        <td>{{ cita.horaInicio }}</td>
+        <td>{{ cita.horaFin }}</td>
+        <td>
+          <span [ngClass]="{
+            'text-success': cita.estado === 'confirmada',
+            'text-danger': cita.estado === 'cancelada',
+            'text-warning': cita.estado === 'pendiente'
+          }">
+            {{ cita.estado }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="citas.length === 0" class="alert alert-info mt-3">
+    No hay citas registradas.
+  </div>
+</div>

@@ -1,6 +1,6 @@
 <nav class="menu">
   <ul>
-    <!-- 🏠 Inmuebles (visible solo para 'asesor' y 'administrador') -->
+    <!-- Inmuebles (visible solo para 'asesor' y 'administrador') -->
     <li class="submenu" *ngIf="rol === 'asesor' || rol === 'admin'">
       <span (click)="toggleSubmenu()">Inmuebles ▼</span>
       <ul class="submenu-items" *ngIf="mostrarSubmenuInmueble">
@@ -9,11 +9,27 @@
       </ul>
     </li>
 
-    <!-- 👑 Administración de roles (solo administrador) -->
+    <!-- Administración de roles (solo administrador) -->
     <li class="submenu" *ngIf="rol === 'admin'">
       <span (click)="toggleSubmenu()">Roles ▼</span>
       <ul class="submenu-items" *ngIf="mostrarSubmenuInmueble">
         <li><a (click)="mostrarComponente('roles')">Gestionar Roles</a></li>
+      </ul>
+    </li>
+
+    <!-- Reservar citas (todo) -->
+    <li class="submenu" *ngIf="rol === 'admin' || rol === 'cliente' || rol === 'interesado' || rol === 'propietario'">
+      <span (click)="toggleSubmenu()">Citas ▼</span>
+      <ul class="submenu-items" *ngIf="mostrarSubmenuInmueble">
+        <li><a (click)="mostrarComponente('citas')">Reservar Citas</a></li>
+      </ul>
+    </li>
+
+    <li class="submenu" *ngIf="rol === 'admin' || rol === 'propietario'">
+      <span (click)="toggleSubmenu()">Gestion Cita ▼</span>
+      <ul class="submenu-items" *ngIf="mostrarSubmenuInmueble">
+        <li><a (click)="mostrarComponente('Gestion_Cita')">Gestionar Cita</a></li>
+        <li><a (click)="mostrarComponente('Listar_Cita')">Listar Cita</a></li>
       </ul>
     </li>
 
@@ -25,4 +41,7 @@
   <app-inmueble *ngIf="componenteActivo === 'publicar'"></app-inmueble>
   <app-listar-inmuebles *ngIf="componenteActivo === 'listar'"></app-listar-inmuebles>
   <app-roles *ngIf="componenteActivo === 'roles'"></app-roles>
+  <app-listar-inmuebles-cliente *ngIf="componenteActivo === 'citas'"></app-listar-inmuebles-cliente>
+  <app-lista-citas *ngIf="componenteActivo === 'Gestion_Cita'"></app-lista-citas>
+  <app-listar-citas *ngIf="componenteActivo === 'Listar_Cita'"></app-listar-citas>
 </div>

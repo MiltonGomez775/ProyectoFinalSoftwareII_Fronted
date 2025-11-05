@@ -1,0 +1,28 @@
+<h2>Espacios disponibles</h2>
+
+<div *ngIf="espacios.length === 0">
+  No hay espacios disponibles para este inmueble.
+</div>
+
+<table class="table table-striped" *ngIf="espacios.length > 0">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Hora inicio</th>
+      <th>Hora fin</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let espacio of espacios">
+      <td>{{ espacio.fecha }}</td>
+      <td>{{ espacio.horaInicio }}</td>
+      <td>{{ espacio.horaFin }}</td>
+      <td>
+        <button class="btn btn-primary btn-sm" (click)="reservarCita(espacio.id)">
+          Reservar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

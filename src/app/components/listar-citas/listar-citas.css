@@ -1,0 +1,19 @@
+.contenedor {
+  padding: 20px;
+}
+
+.table {
+  width: 100%;
+}
+
+.text-success {
+  font-weight: bold;
+}
+
+.text-danger {
+  font-weight: bold;
+}
+
+.text-warning {
+  font-weight: bold;
+}

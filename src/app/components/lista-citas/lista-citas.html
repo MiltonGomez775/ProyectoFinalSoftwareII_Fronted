@@ -1,0 +1,27 @@
+<h2 class="mb-3">Citas pendientes por confirmar</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Propietario</th>
+      <th>Inmueble</th>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cita of citasPendientes">
+      <td>{{ cita.nombreCliente }}</td>
+      <td>{{ cita.nombrePropietario }}</td>
+      <td>{{ cita.nombreInmueble }}</td> <!-- o luego 'cita.nombreInmueble' si lo agregas -->
+      <td>{{ cita.fecha }}</td>
+      <td>{{ cita.horaInicio }} - {{ cita.horaFin }}</td>
+      <td>
+        <button class="btn btn-success btn-sm me-2" (click)="confirmarCita(cita.id)">Confirmar</button>
+        <button class="btn btn-danger btn-sm" (click)="cancelarCita(cita.id)">Cancelar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
