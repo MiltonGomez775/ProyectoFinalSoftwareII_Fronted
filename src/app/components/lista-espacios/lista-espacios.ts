@@ -36,10 +36,14 @@ export class ListaEspaciosComponent implements OnInit {
     });
   }
 
-  reservarCita(espacioId: string): void {
+  reservarCita(espacio: any): void {
     const cita = {
       clienteId: this.clienteId,
-      espacioId: espacioId
+      propietarioId: espacio.propietarioId,
+      espacioId: espacio.id,
+      fecha: espacio.fecha,
+      horaInicio: espacio.horaInicio,
+      horaFin: espacio.horaFin
     };
 
     this.citaService.crearCita(cita).subscribe({
