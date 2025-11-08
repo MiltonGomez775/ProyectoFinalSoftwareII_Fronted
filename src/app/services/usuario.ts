@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class Usuario {
-  private apiUrl = 'https://proyectofinalsoftwareii-6.onrender.com/api/usuarios';
+  private apiUrl = 'https://proyectofinalsoftwareii-8.onrender.com/api/usuarios';
 
   constructor(private http: HttpClient) {}
 

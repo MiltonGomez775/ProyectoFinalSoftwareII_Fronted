@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class InmuebleService {
-  private apiUrl = 'https://proyectofinalsoftwareii-6.onrender.com/api/inmuebles';
+  private apiUrl = 'https://proyectofinalsoftwareii-8.onrender.com/api/inmuebles';
 
   constructor(private http: HttpClient) {}
 

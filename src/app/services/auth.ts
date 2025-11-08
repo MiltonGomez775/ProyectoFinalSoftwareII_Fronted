@@ -6,7 +6,7 @@ import { Observable, tap } from 'rxjs';
   providedIn: 'root'
 })
 export class Auth {
-  private apiUrl = 'https://proyectofinalsoftwareii-6.onrender.com/api/sesiones'; 
+  private apiUrl = 'https://proyectofinalsoftwareii-8.onrender.com/api/sesiones'; 
   private tokenKey = 'jwt_token';
   private userIdKey = 'usuario_id';
   private rolKey = 'rol';

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CitaService {
-  private apiUrl = 'https://proyectofinalsoftwareii-6.onrender.com/api/citas';
+  private apiUrl = 'https://proyectofinalsoftwareii-8.onrender.com/api/citas';
 
   constructor(private http: HttpClient) {}
 

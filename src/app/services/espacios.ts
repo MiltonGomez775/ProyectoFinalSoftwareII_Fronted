@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class EspacioService {
-  private apiUrl = 'https://proyectofinalsoftwareii-6.onrender.com/api/espacios';
+  private apiUrl = 'https://proyectofinalsoftwareii-8.onrender.com/api/espacios';
 
   constructor(private http: HttpClient) {}
 
