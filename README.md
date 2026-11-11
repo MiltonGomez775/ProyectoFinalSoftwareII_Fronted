@@ -1,59 +1,54 @@
-# ProyectoFinalSoftwareFronted
+# 🏠 Gestión Inmobiliaria — Web
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.4.
+Cliente web de la plataforma de gestión inmobiliaria. Los propietarios publican y editan sus inmuebles y definen horarios de visita; los clientes exploran los inmuebles, ven el detalle y reservan citas.
 
-## Development server
+![Angular](https://img.shields.io/badge/Angular-20-DD0031?logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)
+![SSR](https://img.shields.io/badge/Angular-SSR-DD0031?logo=angular&logoColor=white)
 
-To start a local development server, run:
+**API:** [ProyectoFinalSoftwareII](https://github.com/MiltonGomez775/ProyectoFinalSoftwareII)
 
-```bash
-ng serve
+<!-- Agregue aquí una captura: ![Inmobiliaria](docs/captura.png) -->
+
+---
+
+## Funcionalidades
+
+- Registro, inicio de sesión, recuperación y restablecimiento de contraseña.
+- Selección y cambio de rol (propietario / cliente).
+- **Propietario:** crear, listar y editar inmuebles; administrar espacios disponibles; ver las citas agendadas.
+- **Cliente:** listar inmuebles, ver el detalle y reservar una cita de visita.
+
+## Tecnologías
+
+- Angular 20 con renderizado del lado del servidor (SSR + Express)
+- TypeScript, CSS
+- Jasmine + Karma para pruebas unitarias
+
+## Estructura
+
+```
+src/app
+├── components/   # login, registro, rol, menú, inmuebles, espacios, citas
+├── services/     # auth, usuario, inmueble, espacios, citas
+├── recuperar-contrasena/
+└── restablecer-contrasena/
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Cómo ejecutarlo
 
 ```bash
-ng generate component component-name
+npm install
+npm start        # http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Necesita la [API](https://github.com/MiltonGomez775/ProyectoFinalSoftwareII) corriendo en `http://localhost:8080`.
 
 ```bash
-ng generate --help
+npm run build
+npm run serve:ssr:proyectoFinalSoftwareFronted   # sirve la versión SSR
 ```
 
-## Building
+---
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Proyecto de Ingeniería de Software II, Universidad del Quindío. Desarrollado por **[Milton Gómez](https://github.com/MiltonGomez775)**.
